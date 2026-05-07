@@ -1,7 +1,17 @@
 repos:
-   - repo: https://github.com/astral-sh/ruff-pre-commit
-     rev: v0.15.6
-     hooks:
-        - id: ruff-check  # Linter
-          args: [--fix]  # Ensure fixes are applied
-        - id: ruff-format  # Formatter
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.6
+    hooks:
+      - id: ruff-check
+        args: [--fix]
+      - id: ruff-format
+
+  - repo: local
+    hooks:
+      - id: xenon
+        name: xenon
+        entry: xenon
+        language: python
+        additional_dependencies: [xenon]
+        types: [python]
+        args: ["--max-absolute=B", "--max-modules=A", "--max-average=A"]
