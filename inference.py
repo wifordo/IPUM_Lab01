@@ -8,6 +8,5 @@ def load_model():
 
 def predict(model, data):
     iris = load_iris()
-    # model.predict oczekuje listy list [[...]]
     prediction = model.predict([list(data.values())])
     return iris.target_names[prediction[0]]
